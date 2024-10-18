@@ -1,5 +1,49 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11097260.svg)](https://doi.org/10.5281/zenodo.11097260)
 
+
+Installation doesn't work on Windows machine nor Sherlock. On Sherlock I got the ants error that I remember
+seeing when getting ants to run using snakebrains: AttributeError: module 'ants' has no attribute 'ANTsImage'
+
+Additionally, there was a fixable bug with the package pulp & snakemake, solution was to downgrade pulp.
+
+However, I'll need to install this manually it seems
+
+# Installation on Sherlock
+https://github.com/pimentel/sherlock-notes/blob/master/README.md (maybe useful info)
+
+`ml python/3.9.0` (on sherlock only)
+
+### make an environment
+
+`python3 -m venv .env_bifrost` # Create environment (#Note for myself: Local Mac is '.env_snake_brainsss')
+
+`source .env_bifrost/bin/activate` # Activate environment
+
+### Install necessary packages
+
+`pip install --upgrade pip`
+
+Install Antspy from defined wheel - pip install Antspy yields the ants.ANTsImage error!
+Make sure to use the correct python version and OS on this website. Also, probably there's a newer version
+
+> DIDNT WORK: `pip install https://github.com/ANTsX/ANTsPy/releases/download/v0.5.3/antspyx-0.5.3-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl`
+
+`pip install https://github.com/ANTsX/ANTsPy/releases/download/v0.5.2/antspyx-0.5.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl`
+
+`pip install snakemake`
+
+`pip install PuLP==2.7.0` # necessary downgrade of a wrong dependency of snakemake
+
+`pip install pynrrd`
+
+`pip install git+https://github.com/ClandininLab/voxelmorph.git@ed92ff23455c8b8942a0c38ee8988223b71410c5`
+
+`pip install urllib3==1.26.6`
+
+`pip install git+https://git@github.com/DavidTadres/bifrost.git`
+
+# Original readme below
+
 # bifrost
 
 Template building and multi-modal registration
