@@ -70,7 +70,7 @@ rule build_template:
     log:
         "logs/build_template.log"
     resources:
-        runtime="7d",
+        runtime="8h",
         mem_mb=128000  # should be sufficient
     threads:
         config['resources']['max_threads']
