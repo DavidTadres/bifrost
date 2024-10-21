@@ -42,6 +42,18 @@ Make sure to use the correct python version and OS on this website. Also, probab
 
 `pip install git+https://git@github.com/DavidTadres/bifrost.git`
 
+## Manual install on Windows
+
+`conda create -n env_bifrost`
+
+`activate env_bifrost`
+
+`conda install python==3.9.0`
+
+`pip install https://github.com/ANTsX/ANTsPy/releases/download/v0.3.8/antspyx-0.3.8-cp39-cp39-win_amd64.whl`
+
+...
+
 # Original readme below
 
 # bifrost
