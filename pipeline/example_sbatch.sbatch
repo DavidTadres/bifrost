@@ -18,7 +18,7 @@ source $GROUP_HOME/venvs/bifrost/bin/activate
 #  - a Snakefile
 #  - a config.yaml file
 #  - a cluster_profile directory containing a config.yaml (the cluster profile)
-cd $GROUP_HOME/src/bifrost/pipeline
+cd bifrost/pipeline
 
 # submit tasks as jobs to the slurm scheduler
 # log to stdout verbosely
@@ -28,5 +28,5 @@ cd $GROUP_HOME/src/bifrost/pipeline
 snakemake --slurm \
           --verbose \
           --jobs 100 \
-          --directory /path/to/data/dir \
+          --directory /oak/stanford/groups/trc/data/David/brain_alignments/leaky_expression \
           --profile cluster_profile

@@ -52,6 +52,14 @@ Make sure to use the correct python version and OS on this website. Also, probab
 
 `pip install https://github.com/ANTsX/ANTsPy/releases/download/v0.3.8/antspyx-0.3.8-cp39-cp39-win_amd64.whl`
 
+`pip install pynrrd`
+
+`pip install git+https://github.com/ClandininLab/voxelmorph.git@ed92ff23455c8b8942a0c38ee8988223b71410c5`
+
+`pip install snakemake==7.30.2`
+
+`pip install PuLP==2.7.0` # necessary downgrade of a wrong dependency of snakemake
+
 ...
 
 # Original readme below
