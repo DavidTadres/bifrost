@@ -63,6 +63,7 @@ rule clean:
         "rm -rf results"
 
 rule build_template:
+    threads: 32
     input:
         expand("data/{sample}/structural_image.nii", sample=SAMPLES)
     output:
@@ -71,7 +72,8 @@ rule build_template:
         "logs/build_template.log"
     resources:
         runtime="8h",
-        mem_mb=128000  # should be sufficient
+        mem_mb=256000  # should be sufficient
+
     threads:
         config['resources']['max_threads']
     shell:
