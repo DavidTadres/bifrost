@@ -60,6 +60,8 @@ Make sure to use the correct python version and OS on this website. Also, probab
 
 `pip install PuLP==2.7.0` # necessary downgrade of a wrong dependency of snakemake
 
+`pip install -e git+https://git@github.com/DavidTadres/bifrost.git`
+
 ...
 
 # Original readme below
