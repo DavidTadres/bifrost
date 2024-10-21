@@ -159,6 +159,7 @@ rule transform_dependent_images_to_fda:
         "logs/transform_dependent_images_to_fda_{sample}_{channel}_{image}.log"
     resources:
         runtime="1d",
+        mem_mb=128000  # should be sufficient
     threads:
         min(4,  config['resources']['max_threads'])
     shell:
