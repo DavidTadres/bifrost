@@ -28,5 +28,5 @@ cd bifrost/pipeline
 snakemake --slurm \
           --verbose \
           --jobs 100 \
-          --directory /oak/stanford/groups/trc/data/David/brain_alignments/leaky_expression \
+          --directory /oak/stanford/groups/trc/data/David/brain_alignments/UEP \
           --profile cluster_profile
