@@ -85,6 +85,7 @@ rule build_template:
 
 
 rule register_template_to_fda:
+    threads: 32
     input:
         template="results/template.nii",
         fda="templates/FDA.nii",
@@ -94,6 +95,7 @@ rule register_template_to_fda:
         "logs/register_template_to_fda.log"
     resources:
         runtime="1d",
+        mem_mb=256000  # should be sufficient
     threads:
         config['resources']['max_threads']
     shell:
@@ -107,6 +109,7 @@ rule register_template_to_fda:
 
 
 rule register_structural_images_to_template:
+    threads: 32
     input:
         image="data/{sample}/structural_image.nii",
         template="results/template.nii"
@@ -116,6 +119,7 @@ rule register_structural_images_to_template:
         "logs/register_structural_images_to_template_{sample}.log"
     resources:
         runtime="1d",
+        mem_mb=256000  # should be sufficient
     threads:
         config['resources']['max_threads']
     shell:
@@ -129,6 +133,7 @@ rule register_structural_images_to_template:
 
 
 rule transform_dependent_images_to_template:
+    threads: 32
     input:
         registration="results/structural_images_to_template/{sample}",
         image="data/{sample}/{channel}/{image}.nii"
@@ -138,7 +143,7 @@ rule transform_dependent_images_to_template:
         "logs/transform_dependent_images_to_template_{sample}_{channel}_{image}.log"
     resources:
         runtime="1d",
-        mem_mb=128000  # should be sufficient
+        mem_mb=256000  # should be sufficient
     threads:
         min(4,  config['resources']['max_threads'])
     shell:
@@ -150,6 +155,7 @@ rule transform_dependent_images_to_template:
 
 
 rule transform_dependent_images_to_fda:
+    threads: 32
     input:
         registration="results/template_to_fda",
         image="results/transform_dependent_images_to_template/{sample}/{channel}/{image}.nii"
@@ -159,7 +165,7 @@ rule transform_dependent_images_to_fda:
         "logs/transform_dependent_images_to_fda_{sample}_{channel}_{image}.log"
     resources:
         runtime="1d",
-        mem_mb=128000  # should be sufficient
+        mem_mb=256000  # had again OOM!
     threads:
         min(4,  config['resources']['max_threads'])
     shell:
