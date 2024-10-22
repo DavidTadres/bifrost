@@ -28,5 +28,5 @@ cd bifrost/pipeline
 snakemake --slurm \
           --verbose \
           --jobs 100 \
-          --directory /oak/stanford/groups/trc/data/David/brain_alignments/UEP \
+          --directory /oak/stanford/groups/trc/data/David/brain_alignments/UEP_individual/NoChrimson-tdTomato_1\
           --profile cluster_profile

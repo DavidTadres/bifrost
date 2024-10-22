@@ -4,3 +4,12 @@ default-resources:
  - mem_mb="128G"
  - nodes=1
  - tasks=1
+
+cluster:
+  mkdir -p logs/`date +"%Y-%m-%d"` &&
+  sbatch
+    --partition={resources.partition}
+    --cpus-per-task={threads}
+    --job-name=smk-{rule}-{wildcards}
+    --output=logs/`date +"%Y-%m-%d"`/{rule}-`date +"%Y-%m-%d-%H%M%S"`.out
+    --mail-type=ALL
