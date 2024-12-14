@@ -28,6 +28,6 @@ cd bifrost/pipeline
 snakemake --slurm \
           --verbose \
           --jobs 100 \
-          --directory /oak/stanford/groups/trc/data/David/brain_alignments/FS213_anat\
+          --directory /oak/stanford/groups/trc/data/David/brain_alignments/FS213_func\
           --profile cluster_profile
           --mail-type=ALL # Try this to get emails as jobs happen
