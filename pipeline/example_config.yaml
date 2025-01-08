@@ -42,4 +42,4 @@ parameters:
 resources:
   # max threads available to bifrost, you should set this value to the number of
   # cores available in the nodes on your cluster
-  max_threads: 16
+  max_threads: 32
